@@ -1,0 +1,5 @@
+#Goals 
+#Able to download video from various sources such as yt, instagram.
+#Find what type of libary gonna use 
+# Conclusion use yt_dlp = This intension able to downlaod video from YT ( checked)
+# The user must able to downlaod type of vidoe like resolution of the video 
