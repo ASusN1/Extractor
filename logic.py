@@ -13,6 +13,7 @@ def get_video_info(link, save_path):
     except Exception as e:
         print(f"Error: {e}")
 
-link = "" # input yt url here
-save_path = ""# user input their own path here
+link = "https://www.youtube.com/watch?v=pyBEvMXVfL0" # input yt url here , this is a test sample link
+save_path = r"D:\HackClubProjectList\video_test"# user input their own path here  #Make sure the path exists # error encouter: path does not exist ??? --> solution: add r before the save path so that python does not treat 
+#\ as escape character
 get_video_info(link, save_path)
