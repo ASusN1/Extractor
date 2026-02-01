@@ -3,3 +3,6 @@
 #Find what type of libary gonna use 
 # Conclusion use yt_dlp = This intension able to downlaod video from YT ( checked)
 # The user must able to downlaod type of vidoe like resolution of the video 
+# use tinker for user interface 
+# error encounter: Make sure the path exists # error encouter: path does not exist ??? --> solution: add r before the save path so that python does not treat 
+#\ as escape character
