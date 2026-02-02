@@ -1,8 +1,50 @@
-#Goals 
-#Able to download video from various sources such as yt, instagram.
-#Find what type of libary gonna use 
-# Conclusion use yt_dlp = This intension able to downlaod video from YT ( checked)
-# The user must able to downlaod type of vidoe like resolution of the video 
-# use tinker for user interface 
-# error encounter: Make sure the path exists # error encouter: path does not exist ??? --> solution: add r before the save path so that python does not treat 
-#\ as escape character
+# VIDEO DOWNLOADER PROJECT - GOALS & ROADMAP
+
+## CORE FUNCTIONALITY
+- [✓] Download videos from various sources (YouTube, Instagram)
+- [✓] Use yt_dlp library for video downloading
+- [✓] Support multiple download formats: audio only, video only, video with audio
+- [✓] Allow users to select video resolution/quality
+- [✓] Custom save path selection
+
+## COMPLETED FEATURES
+- [✓] Download URL functionality working
+- [✓] Browse and enter path option working
+- [✓] Download with user-specified save path
+
+## RESOLVED ISSUES
+- Fixed path error by using raw strings (r"path") to prevent backslash escape issues
+- Resolved duplicate filename issue: Files now named as "(video_name) + (type) + (quality)"
+  Example: "MyVideo_video_with_audio_1080p.mp4"
+
+## UI REQUIREMENTS (Tkinter)
+- Window dimensions: 600x800
+- Scalable interface (elements resize proportionally)
+- Color scheme: Dark blue theme with white text
+- Font: TBD
+
+## FEATURES TO IMPLEMENT
+
+### 1. Quality Selection
+- When URL is fetched, display available qualities (144p, 240p, 720p, 1080p, etc.)
+- Show options in a dropdown/listbox
+- Default to best available quality if user doesn't select
+
+### 2. File Size Display
+- Show estimated file size before download (500MB, 1.3GB, etc.)
+- Update size based on selected format (audio/video/both)
+
+### 3. Download Progress Bar
+- Blue: downloading in progress
+- Green: download complete
+- Red: error occurred
+
+### 4. Video Preview (STRETCH GOAL - LOWEST PRIORITY)
+- Display short preview of video before downloading
+- This is the most challenging feature
+
+## NAMING CONVENTION FOR DOWNLOADS
+Format: [video_name]_[type]_[quality].ext
+- Type: audio_only / video_only / video_with_audio
+- Quality: 144p, 240p, 720p, 1080p, etc. 
+

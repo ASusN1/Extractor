@@ -1,39 +1,51 @@
-#user interphase 
-import tkinter as tk 
-from tkinter import filedialog 
+import tkinter as tk
+from tkinter import filedialog
 from logic import get_video_info
 
-def browse_save_path(): 
+
+def browse_folder():
+    """Open folder picker and set the path"""
     folder = filedialog.askdirectory()
     if folder:
-        path_entry.delete(0, tk.END)
-        path_entry.insert(0, folder)
+        save_path_input.delete(0, tk.END)
+        save_path_input.insert(0, folder)
 
-def download_video():
-    link = url_entry.get()
-    save_path = path_entry.get()
-    get_video_info(link, save_path)
 
+def start_download():
+    """Get inputs and start download"""
+    video_url = url_input.get()
+    save_location = save_path_input.get()
+    get_video_info(video_url, save_location)
+
+
+# Create main window
 window = tk.Tk()
-window.title("Extractor")
+window.title("Video Extractor")
+window.geometry("600x800")
 
-#video url label + input
-tk.Label(window, text = "video Link").pack(pady=5)
-url_entry = tk.Entry(window, width = 60)
-url_entry.pack(pady= 5) 
+# Save path section
+tk.Label(window, text="Save Path").pack(pady=5)
 
-#save path 
-tk.Label(window, text = "Save Path").pack(pady=5)
+path_section = tk.Frame(window)
+path_section.pack(pady=5)
 
-path_frame = tk.Frame(window)
-path_frame.pack(pady=5)
+save_path_input = tk.Entry(path_section, width=30)
+save_path_input.pack(side=tk.LEFT)
 
-path_entry = tk.Entry(path_frame, width=45)
-path_entry.pack(side =tk.LEFT)
-tk.Button(path_frame, text ="Browse" , command = browse_save_path).pack(side = tk.LEFT, padx=5)
+browse_button = tk.Button(path_section, text="Browse", command=browse_folder)
+browse_button.pack(side=tk.LEFT, padx=5)
 
-tk.Button(window, text = "Download", command = download_video).pack(pady=20)
+# Download button
+download_button = tk.Button(window, text="Download", command=start_download)
+download_button.pack(pady=20)
 
+# Video URL section - center right with spacing
+video_section = tk.Frame(window)
+video_section.pack(side=tk.RIGHT, anchor=tk.CENTER, padx=10, pady=10)
 
+tk.Label(video_section, text="Video URL").pack()
+url_input = tk.Entry(video_section, width=40)
+url_input.pack(pady=5)
 
+# Start the app
 window.mainloop()
